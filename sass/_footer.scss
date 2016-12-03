@@ -17,11 +17,11 @@
 				height: 36px;
 				display: inline-block;
 			}
-			/*@each $i in vk, fb {
+			@each $i in vk, fb {
 				&--#{$i}::before {
 					background: sprite($site-sprite, soc_#{$i});
 				}
-			}*/
+			}
 			&--mousedown {
 				top: 5px;
 			}

@@ -3,7 +3,7 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 const path = require('path');
-
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
 
 	entry: "./frontend/main",
@@ -14,9 +14,9 @@ module.exports = {
 		filename: "project.js"
 	},
 
-	watch: NODE_ENV == 'development',
+	//watch: NODE_ENV == 'development',
 
-	devtool: NODE_ENV == 'development' ? "cheap-inline-module-source-map" : "source-map",
+	devtool: "source-map",
 
 	plugins: [
 		new webpack.DefinePlugin({
@@ -24,6 +24,9 @@ module.exports = {
 		}),
 		new webpack.ProvidePlugin({
 			$: 'jquery/dist/jquery.min'
+		}),
+		new ExtractTextPlugin("../styles.css", {
+			allChunks: true
 		})
 	],
 
@@ -40,11 +43,11 @@ module.exports = {
 				}
 			},{
 				test: /\.scss$/,
-				loader: "style-loader!raw-loader!sass-loader?includePaths[]=" + path.resolve(__dirname, "./node_modules/compass-mixins/lib")
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!resolve-url!sass-loader?sourceMap')
 			}
 		]
-
 	}
+
 };
 
 if (NODE_ENV == 'production') {

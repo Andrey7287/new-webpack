@@ -3,8 +3,10 @@
 console.log(`jQuery ${$.fn.jquery} is loaded`);
 window.$ = $;
 
+import '../sass/css.scss';
 import Menu from './modules/menu';
-var menu = new Menu;
+
+let menu = new Menu;
 
 (function adaptiveMenu () {
 
@@ -32,4 +34,15 @@ var menu = new Menu;
 	});
 
 })();
-require('./modules/ravno');
+
+$('.btnttt').click(function(){
+
+	require.ensure([], (require) => {
+		require('./modules/ravno');
+		$('.ttt').ravno();
+	});
+});
+
+
+
+
