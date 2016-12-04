@@ -6,7 +6,7 @@ window.$ = $;
 import '../sass/css.scss';
 import Menu from './modules/menu';
 
-let menu = new Menu;
+var menu = new Menu;
 
 (function adaptiveMenu () {
 

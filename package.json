@@ -39,7 +39,9 @@
     "node-sass": "^3.13.0",
     "raw-loader": "^0.5.1",
     "resolve-url-loader": "^1.6.0",
+    "ruby-sass-loader": "^0.3.0",
     "sass-loader": "^4.0.2",
+    "sass-resources-loader": "^1.1.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3"
   }

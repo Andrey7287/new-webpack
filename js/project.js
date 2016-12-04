@@ -97,7 +97,7 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	__webpack_require__(3);
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../sass/css.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _menu = __webpack_require__(4);
 
@@ -161,12 +161,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
+/* 3 */,
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 

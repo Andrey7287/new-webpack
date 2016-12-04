@@ -142,64 +142,6 @@ $btn-bkg: #01a3d4;
 	margin-bottom: 20px;
 }
 
-.paging {
-	margin: 30px 0 50px;
-	display: block;
-	text-align: center;
-	&__item {
-		position: relative;
-		@include font(20);
-		padding: 0 6px;
-		color: #005771;
-		text-decoration: none;
-		&::before {
-			position: absolute;
-			content: ".";
-			font-size: 0;
-			line-height: 0;
-			width: 23px;
-			height: 7px;
-			top: -11px;
-		}
-		@each $arrow in prev,next {
-
-			@if $arrow == prev {
-				&--#{$arrow} {
-					margin-right: 15px;
-					font-size: 0;
-				}
-			}
-			@if $arrow == next {
-				&--#{$arrow} {
-					margin-left: 15px;
-					font-size: 0;
-				}
-			}
-
-			&--#{$arrow}::before {
-				background: sprite($site-sprite, arrow_#{$arrow}_grey) no-repeat;
-				@if $arrow == prev {
-					left: -5px;
-				}
-				@if $arrow == next {
-					right: -5px;
-				}
-			}
-
-			&--#{$arrow}:hover::before {
-				background: sprite($site-sprite, arrow_#{$arrow}_blue) no-repeat;
-			}
-
-		}
-		&--act,
-		&:hover:not(span) {
-			background: #01a3d4;
-			color: #fff;
-		}
-	}
-
-}
-
 .bordered {
 	border-bottom: 1px solid #dadada;
 	padding-bottom: 24px;

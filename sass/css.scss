@@ -1,9 +1,15 @@
+@import "../node_modules/compass-mixins/lib/compass";
+//@import "../node_modules/compass-mixins/lib/compass/functions";
+//@import "../node_modules/compass-mixins/lib/compass/css3/images";
+@import "../node_modules/compass-mixins/lib/compass/utilities/sprites/sprite-img";
+@import "/src/*.png";
+
+
 @import "../node_modules/normalize-scss/sass/normalize";
 @import "../node_modules/slick-carousel/slick/slick.scss";
 
 @import "bootstrap";
 
-//@import "compass/css3/images";
 @import "mixins";
 @import "variables";
 @import "common";
