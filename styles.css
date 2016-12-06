@@ -1,3 +1,48 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
 /* Slider */
 .slick-slider {
   position: relative;
@@ -906,47 +951,6 @@ h3, .h3 {
 .inner {
   margin-bottom: 20px; }
 
-.paging {
-  margin: 30px 0 50px;
-  display: block;
-  text-align: center; }
-  .paging__item {
-    position: relative;
-    font-weight: 400;
-    font-size: 1.33333em;
-    line-height: 1.3em;
-    font-family: "Open Sans", sans-serif;
-    padding: 0 6px;
-    color: #005771;
-    text-decoration: none; }
-    .paging__item::before {
-      position: absolute;
-      content: ".";
-      font-size: 0;
-      line-height: 0;
-      width: 23px;
-      height: 7px;
-      top: -11px; }
-    .paging__item--prev {
-      margin-right: 15px;
-      font-size: 0; }
-    .paging__item--prev::before {
-      background: sprite(sprite-map("../images/src/*.png"), arrow_prev_grey) no-repeat;
-      left: -5px; }
-    .paging__item--prev:hover::before {
-      background: sprite(sprite-map("../images/src/*.png"), arrow_prev_blue) no-repeat; }
-    .paging__item--next {
-      margin-left: 15px;
-      font-size: 0; }
-    .paging__item--next::before {
-      background: sprite(sprite-map("../images/src/*.png"), arrow_next_grey) no-repeat;
-      right: -5px; }
-    .paging__item--next:hover::before {
-      background: sprite(sprite-map("../images/src/*.png"), arrow_next_blue) no-repeat; }
-    .paging__item--act, .paging__item:hover:not(span) {
-      background: #01a3d4;
-      color: #fff; }
-
 .bordered {
   border-bottom: 1px solid #dadada;
   padding-bottom: 24px; }
@@ -1106,10 +1110,13 @@ h3, .h3 {
     top: calc(50% - 26px); }
     .slider-wrapper .arrow.left {
       left: 13px;
-      background: sprite(sprite-map("../images/src/*.png"), arrow_left); }
+      background-image: url(/images/sprite.png);
+      background-position: 0px 0px;
+      width: 20px;
+      height: 52px;
+      width: 20px; }
     .slider-wrapper .arrow.right {
-      right: 13px;
-      background: sprite(sprite-map("../images/src/*.png"), arrow_right); }
+      right: 13px; }
 
 .slider {
   /*.slick-slide {
@@ -1159,12 +1166,6 @@ h3, .h3 {
         width: 42px;
         height: 36px;
         display: inline-block; }
-      .footer .soc__item--vk::before {
-        background: sprite(sprite-map("../images/src/*.png"), soc_vk); }
-      .footer .soc__item--fb::before {
-        background: sprite(sprite-map("../images/src/*.png"), soc_fb); }
-      .footer .soc__item--mousedown {
-        top: 5px; }
 
 #map {
   height: 470px; }

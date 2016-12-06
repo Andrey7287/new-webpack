@@ -14,7 +14,8 @@
 		top: calc(50% - 26px);
 		&.left {
 			left: 13px;
-			@include src-sprite(arrow_left);
+			@include sprite($arrow_left);
+			width: $arrow-left-width;
 		}
 		&.right {
 			right: 13px;

@@ -4,6 +4,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
 
@@ -28,6 +29,19 @@ module.exports = {
 		}),
 		new ExtractTextPlugin("../styles.css", {
 			allChunks: true
+		}),
+		new SpritesmithPlugin({
+			src: {
+				cwd: path.resolve(__dirname, 'images/src'),
+				glob: '*.png'
+			},
+			target: {
+				image: path.resolve(__dirname, 'images/sprite.png'),
+				css: path.resolve(__dirname, 'sass/_sprite.scss')
+			},
+			apiOptions: {
+				cssImageRef: '/images//sprite.png'
+			}
 		})
 	],
 
@@ -44,9 +58,16 @@ module.exports = {
 				}
 			},{
 				test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!ruby-sass-loader?compass=1')
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!sass-loader?sourceMap')
+			},{
+				test: /\.png$/,
+				loader:'file?name=i/[hash].[ext]'
 			}
 		]
+	},
+
+	resolve: {
+		modulesDirectories: ["web_modules", "node_modules", "spritesmith-generated"]
 	}
 
 };

@@ -46,3 +46,4 @@ test: /\.scss$/,
 &includePaths[]=' + path.resolve(__dirname, "./node_modules/compass-mixins/lib")
 
 resolve-url!
+loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!ruby-sass-loader?compass=1')
