@@ -1,5 +1,6 @@
-npm NODE_ENV=production
-npm SET NODE_ENV=development
+setx NODE_ENV production
+setx NODE_ENV development
+
 devtool: NODE_ENV == 'development' ? "cheap-inline-module-source-map" : "source-map",
 let $ = require('jquery/dist/jquery.min');
 webpack --profile --display-modules --display-reason
@@ -47,3 +48,5 @@ test: /\.scss$/,
 
 resolve-url!
 loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!ruby-sass-loader?compass=1')
+
+entry: "./frontend/main",

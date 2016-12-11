@@ -5,20 +5,25 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const SpritesmithPlugin = require('webpack-spritesmith');
+const devMode = NODE_ENV == 'development';
 
 module.exports = {
 
-	entry: "./frontend/main",
+	entry: {
+		main: ['webpack-dev-server/client?http://localhost:8080/',
+					 'webpack/hot/dev-server',
+					 './frontend/main']
+	},
 
 	output: {
 		path: __dirname + '/js',
-		publicPath: '/js/',
-		filename: "project.js"
+		publicPath: 'http://localhost:8080/js/',
+		filename: "[name].js?"
 	},
 
-	//watch: NODE_ENV == 'development',
+	//watch: devMode,
 
-	devtool: "source-map",
+	devtool: devMode ? "eval" : "source-map",
 
 	plugins: [
 		new webpack.DefinePlugin({
@@ -27,7 +32,7 @@ module.exports = {
 		new webpack.ProvidePlugin({
 			$: 'jquery/dist/jquery.min'
 		}),
-		new ExtractTextPlugin("../styles.css", {
+		new ExtractTextPlugin("../[name].css", {
 			allChunks: true
 		}),
 		new SpritesmithPlugin({
@@ -42,7 +47,8 @@ module.exports = {
 			apiOptions: {
 				cssImageRef: '/images//sprite.png'
 			}
-		})
+		}),
+		new webpack.HotModuleReplacementPlugin()
 	],
 
 	module: {
@@ -58,7 +64,9 @@ module.exports = {
 				}
 			},{
 				test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!sass-loader?sourceMap')
+        loader: devMode ?
+				'style-loader?sourceMap!css-loader?sourceMap!sass-loader?sourceMap' :
+				ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!sass-loader?sourceMap')
 			},{
 				test: /\.png$/,
 				loader:'file?name=i/[hash].[ext]'
@@ -68,11 +76,13 @@ module.exports = {
 
 	resolve: {
 		modulesDirectories: ["web_modules", "node_modules", "spritesmith-generated"]
-	}
+	},
+
+	devServer: devMode ? {hot: true} : {}
 
 };
 
-if (NODE_ENV == 'production') {
+if ( !devMode ) {
 	module.exports.plugins.push(
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {

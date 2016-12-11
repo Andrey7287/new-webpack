@@ -6,8 +6,6 @@
 	.arrow {
 		position: absolute;
 		text-indent: -99999px;
-		width: 20px;
-		height: 52px;
 		padding: 0;
 		border: 0;
 		line-height: 0;
@@ -15,10 +13,10 @@
 		&.left {
 			left: 13px;
 			@include sprite($arrow_left);
-			width: $arrow-left-width;
 		}
 		&.right {
 			right: 13px;
+			@include sprite($arrow_right);
 		}
 	}
 }

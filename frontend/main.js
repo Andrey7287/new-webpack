@@ -38,6 +38,7 @@ var menu = new Menu;
 $('.btnttt').click(function(){
 
 	require.ensure([], (require) => {
+		console.log('!');
 		require('./modules/ravno');
 		$('.ttt').ravno();
 	});
