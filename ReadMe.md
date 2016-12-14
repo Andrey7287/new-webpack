@@ -50,3 +50,10 @@ resolve-url!
 loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!ruby-sass-loader?compass=1')
 
 entry: "./frontend/main",
+
+
+require.ensure([], (require) => {
+
+		require('./modules/ravno');
+		$('.ttt').ravno();
+	});

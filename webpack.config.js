@@ -17,11 +17,11 @@ module.exports = {
 
 	output: {
 		path: __dirname + '/js',
-		publicPath: 'http://localhost:8080/js/',
+		publicPath: '/js/',
 		filename: "[name].js?"
 	},
 
-	//watch: devMode,
+	watch: devMode,
 
 	devtool: devMode ? "eval" : "source-map",
 
@@ -65,7 +65,7 @@ module.exports = {
 			},{
 				test: /\.scss$/,
         loader: devMode ?
-				'style-loader?sourceMap!css-loader?sourceMap!sass-loader?sourceMap' :
+				'style-loader!css-loader!sass-loader' :
 				ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!sass-loader?sourceMap')
 			},{
 				test: /\.png$/,
@@ -78,7 +78,9 @@ module.exports = {
 		modulesDirectories: ["web_modules", "node_modules", "spritesmith-generated"]
 	},
 
-	devServer: devMode ? {hot: true} : {}
+	devServer: devMode ? {
+		hot: true
+	} : {}
 
 };
 
