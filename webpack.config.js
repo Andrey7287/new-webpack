@@ -42,7 +42,7 @@ module.exports = {
 			},
 			target: {
 				image: path.resolve(__dirname, 'images/sprite.png'),
-				css: path.resolve(__dirname, 'sass/_sprite.scss')
+				css: path.resolve(__dirname, 'sass/tools/_sprite.scss')
 			},
 			apiOptions: {
 				cssImageRef: '/images//sprite.png'

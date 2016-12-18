@@ -1,21 +1,28 @@
-@import "sprite";
+/*Common*/
+@import "common/variables";
+@import "common/mixins";
+@import "common/common";
 
+/*Tools*/
+@import "tools/sprite";
+@import "tools/fancybox";
+@import "tools/bootstrap";
+
+/*Modules*/
 @import "../node_modules/normalize-scss/sass/normalize";
 @import "../node_modules/slick-carousel/slick/slick.scss";
 
-@import "bootstrap";
-
-@import "mixins";
-@import "variables";
-@import "common";
+/*Components*/
+@import "components/menu";
+@import "components/components.hamburger";
+@import "components/map";
+@import "components/slider";
 
 @import "header";
-@import "menu";
-@import "slider";
 @import "main";
 @import "aside";
 @import "footer";
 
-@import "map";
-@import "components.hamburger";
-@import "fancybox";
+
+
+

@@ -10,6 +10,10 @@
 		border: 0;
 		line-height: 0;
 		top: calc(50% - 26px);
+		background-color: transparent;
+		&:hover {
+			cursor: pointer;
+		}
 		&.left {
 			left: 13px;
 			@include sprite($arrow_left);

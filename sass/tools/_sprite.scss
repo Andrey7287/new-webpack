@@ -20,8 +20,8 @@ $arrow-left-width: 20px;
 $arrow-left-height: 52px;
 $arrow-left-total-width: 39px;
 $arrow-left-total-height: 52px;
-$arrow-left-image: '/images/\sprite.png';
-$arrow-left: (0px, 0px, 0px, 0px, 20px, 52px, 39px, 52px, '/images/\sprite.png', 'arrow_left', );
+$arrow-left-image: '/images//sprite.png';
+$arrow-left: (0px, 0px, 0px, 0px, 20px, 52px, 39px, 52px, '/images//sprite.png', 'arrow_left', );
 $arrow-right-name: 'arrow_right';
 $arrow-right-x: 20px;
 $arrow-right-y: 0px;
@@ -31,13 +31,13 @@ $arrow-right-width: 19px;
 $arrow-right-height: 52px;
 $arrow-right-total-width: 39px;
 $arrow-right-total-height: 52px;
-$arrow-right-image: '/images/\sprite.png';
-$arrow-right: (20px, 0px, -20px, 0px, 19px, 52px, 39px, 52px, '/images/\sprite.png', 'arrow_right', );
+$arrow-right-image: '/images//sprite.png';
+$arrow-right: (20px, 0px, -20px, 0px, 19px, 52px, 39px, 52px, '/images//sprite.png', 'arrow_right', );
 $spritesheet-width: 39px;
 $spritesheet-height: 52px;
-$spritesheet-image: '/images/\sprite.png';
+$spritesheet-image: '/images//sprite.png';
 $spritesheet-sprites: ($arrow-left, $arrow-right, );
-$spritesheet: (39px, 52px, '/images/\sprite.png', $spritesheet-sprites, );
+$spritesheet: (39px, 52px, '/images//sprite.png', $spritesheet-sprites, );
 
 /*
 The provided mixins are intended to be used with the array-like variables
