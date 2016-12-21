@@ -28,18 +28,6 @@ p {
 	}
 }
 
-.block {
-	margin-top: 45px;
-	margin-bottom: 45px;
-	@include breakpoint(tablet) {
-		//margin-top: 25px;
-		//margin-bottom: 25px;
-	}
-	@include breakpoint(mobile) {
-		//margin-top: 15px;
-		//margin-bottom: 15px;
-	}
-}
 
 //Nav
 
@@ -78,6 +66,22 @@ a {
 	&[href^="mailto"]{
 		//@include link(#004b62);
 	}
+}
+
+// Images
+
+img {
+	max-width: 100%;
+}
+
+//Buttons
+
+button {
+	border: 0;
+	padding: 0;
+	background-color: transparent;
+	text-indent: -9999px;
+	outline: none;
 }
 
 // Headers

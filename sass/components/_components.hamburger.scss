@@ -21,7 +21,10 @@ $c-humburger-color: #01a3d4;
  */
 
 .c-hamburger {
-	display: block;
+	display: none;
+	@include breakpoint (mobile) {
+		display: block;
+	}
 	position: relative;
 	overflow: hidden;
 	margin: 0;

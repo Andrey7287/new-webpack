@@ -96,7 +96,7 @@ $menu-border-bottom-color: $menu-bkg-inner;
 			}
 		}
 		.dropdown {
-			@include breakpoint (tablet-desktop) {
+			@include breakpoint (tablet) {
 				transform: translateY(-50%) scaleY(0);
 			}
 			width: 200px;
@@ -149,7 +149,7 @@ $menu-border-bottom-color: $menu-bkg-inner;
 			}
 		}
 
-		@include breakpoint (tablet-desktop) {
+		@include breakpoint (tablet) {
 			&:hover {
 				.dropdown {
 					transform: translateY(0%) scaleY(1);

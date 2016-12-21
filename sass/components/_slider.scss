@@ -17,13 +17,6 @@
 		right: 1em;
 
 	}
-	img {
-		width: 100%;
-		max-width: none;
-		@include breakpoint(mobile){
-			width: 160%;
-		}
-	}
 	&__head {
 
 	}
@@ -67,10 +60,6 @@
 		margin: 0 3px;
 		button {
 			@include sprite($dot);
-			border: 0;
-			padding: 0;
-			background-color: transparent;
-			text-indent: -9999px;
 			cursor: pointer;
 		}
 		&.slick-active {
@@ -84,6 +73,7 @@
 			}
 		}
 	}
+
 }
 
 

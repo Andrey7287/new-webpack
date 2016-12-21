@@ -9,8 +9,8 @@ import Menu from './modules/menu';
 
 var menu = new Menu,
 		isMap = $('#map').is('#map'),
-		isSlider = $('.slider').is('.slider');
-
+		isSlider = $('.slider').is('.slider'),
+		scrollTiming = 0;
 /***********************
 ********* MENU *********
 ************************/
@@ -57,16 +57,40 @@ if ( isMap ) {
 
 if ( isSlider ) {
 
-	require.ensure(['../node_modules/slick-carousel/slick/slick'], (require) => {
+	require.ensure([], (require) => {
 		require('script!../node_modules/slick-carousel/slick/slick.js');
 		$('.slider').slick({
 			prevArrow: $('.left'),
 			nextArrow: $('.right'),
-			dots: true
+			dots: true,
+			appendDots: $('.slider-dots')
 		});
 	});
 
 }
+
+/************************
+******* Scroll Up *******
+*************************/
+
+$(document).scroll(function(){
+
+	if ( !scrollTiming ) {
+
+		scrollTiming = setTimeout(function(){
+
+			var scroll = $('body').scrollTop() ? $('body').scrollTop() : $('html').scrollTop();
+			scroll >= 300 ? $('.scrollup').addClass('act') : $('.scrollup').removeClass('act');
+			scrollTiming = 0;
+
+		},300);
+
+	}
+
+});
+
+import scrollup from './modules/scrollup';
+$('.scrollup').scrollUp();
 
 /***********************
 ******** REACT ********
@@ -76,9 +100,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class World extends React.Component {
-  render() {
-    return <h1>World</h1>
-  }
+	render() {
+		return <h1>World</h1>
+	}
+}
+var taregetEl = document.getElementById('world');
+if ( taregetEl ) {
+
+	ReactDOM.render(<World/>, taregetEl);
+
 }
 
-ReactDOM.render(<World/>, document.getElementById('world'));

@@ -9,7 +9,7 @@
 @import "tools/bootstrap";
 
 /*Modules*/
-@import "../node_modules/normalize-scss/sass/normalize";
+@import "../node_modules/normalize-scss/sass/normalize/import-now";
 @import "../node_modules/slick-carousel/slick/slick.scss";
 
 /*Components*/
@@ -17,6 +17,8 @@
 @import "components/components.hamburger";
 @import "components/map";
 @import "components/slider";
+@import "components/components.scrollTo";
+
 
 @import "header";
 @import "main";
