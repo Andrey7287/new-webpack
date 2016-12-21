@@ -3,27 +3,8 @@
 	position: relative;
 	max-width: 1200px;
 	margin: 0 auto;
-	.arrow {
-		position: absolute;
-		text-indent: -99999px;
-		padding: 0;
-		border: 0;
-		line-height: 0;
-		top: calc(50% - 26px);
-		background-color: transparent;
-		&:hover {
-			cursor: pointer;
-		}
-		&.left {
-			left: 13px;
-			@include sprite($arrow_left);
-		}
-		&.right {
-			right: 13px;
-			@include sprite($arrow_right);
-		}
-	}
 }
+/**** SLIDER ****/
 .slider {
 	&__item {
 		position: relative;
@@ -46,16 +27,63 @@
 	&__head {
 
 	}
-	.arrow {
-		@include breakpoint(mobile) {
-			display: none;
+}
+/**** ARROWS ****/
+.slider-arrow {
+	position: absolute;
+	text-indent: -99999px;
+	padding: 0;
+	border: 0;
+	line-height: 0;
+	top: calc(50% - 26px);
+	background-color: transparent;
+	&:hover {
+		cursor: pointer;
+	}
+	&.left {
+		left: 13px;
+		@include sprite($arrow_left);
+	}
+	&.right {
+		right: 13px;
+		@include sprite($arrow_right);
+	}
+}
+/**** DOTS ****/
+.slider-dots {
+	position: absolute;
+	bottom: 15px;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.slick-dots {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+	li {
+		display: inline-block;
+		margin: 0 3px;
+		button {
+			@include sprite($dot);
+			border: 0;
+			padding: 0;
+			background-color: transparent;
+			text-indent: -9999px;
+			cursor: pointer;
+		}
+		&.slick-active {
+			button {
+				@include sprite($dot_act);
+			}
+		}
+		&:hover {
+			button {
+				@include sprite($dot_act);
+			}
 		}
 	}
-	/*.slick-slide {
-		height: auto;
-	}*/
 }
-
-
 
 
