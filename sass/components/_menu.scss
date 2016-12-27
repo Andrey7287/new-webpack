@@ -1,3 +1,4 @@
+$duration: 0.5s;
 $menu-bkg: #fff;
 $menu-bkg-inner: #e9f6fa;
 $menu-hov: #01a3d4;
@@ -44,12 +45,12 @@ $menu-border-bottom-color: $menu-bkg-inner;
 		transform: translateX(-100%) scaleY(0);
 		opacity: 0;
 		@at-root .mobile-open {
-			animation: menu-open 1s ease-in 1;
+			animation: menu-open $duration ease-in 1;
 			transform: translateX(0%);
 			opacity: 1;
 		}
 		@at-root .mobile-close {
-			animation: menu-close 1s ease-in 1;
+			animation: menu-close $duration ease-in 1;
 		}
 		@at-root .hide {
 			display: none!important;
@@ -67,7 +68,7 @@ $menu-border-bottom-color: $menu-bkg-inner;
 		@if $menu-border-bottom-size > 0 {
 			border-bottom: #{$menu-border-bottom-size}px solid #{$menu-border-bottom-color};
 		}
-		@include breakpoint(desktop) {
+		@include breakpoint(tablet) {
 			position: relative;
 		}
 		@include breakpoint(mobile){
@@ -107,12 +108,7 @@ $menu-border-bottom-color: $menu-bkg-inner;
 			display: table-cell;
 			vertical-align: middle;
 			text-align: center;
-			transition: transform 0.5s ease-in;
-			@include breakpoint(tablet){
-				width: 100%;
-				position: absolute;
-				left: 0;
-			}
+			transition: transform 0.3s ease-in;
 			@include breakpoint(mobile){
 				width: auto;
 				position: static;

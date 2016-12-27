@@ -60,7 +60,6 @@
 		margin: 0 3px;
 		button {
 			@include sprite($dot);
-			cursor: pointer;
 		}
 		&.slick-active {
 			button {

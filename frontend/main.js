@@ -7,10 +7,11 @@ window.jQuery = $;
 import '../sass/css.scss';
 import Menu from './modules/menu';
 
-var menu = new Menu,
+var menu = new Menu(),
 		isMap = $('#map').is('#map'),
 		isSlider = $('.slider').is('.slider'),
 		scrollTiming = 0;
+
 /***********************
 ********* MENU *********
 ************************/
@@ -37,6 +38,15 @@ var menu = new Menu,
 	});
 
 })();
+
+/***********************
+******** FOOTER ********
+************************/
+
+import Footer from './modules/footer';
+var footer = new Footer();
+footer.fixFooter();
+
 
 /**********************
 ********* MAP *********
@@ -98,16 +108,41 @@ $('.scrollup').scrollUp();
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NewComponent from './modules/react/new'
 
-class World extends React.Component {
+class StoryBox extends React.Component {
+
+	constructor() {
+
+		super();
+		this.state = {
+			timer: 0
+		};
+	}
+
+
+	componentWillMount() {
+
+		setInterval( () => {
+			var date = new Date;
+			this.setState({ timer: date.getSeconds() });
+		}, 1000);
+
+	}
+
 	render() {
-		return <h1>World</h1>
+		return (
+			<div>
+				<h1>App component</h1>
+				<NewComponent text="lorem -"/>
+				<p>{ this.state.timer }</p>
+			</div>
+		);
 	}
 }
-var taregetEl = document.getElementById('world');
-if ( taregetEl ) {
+var targetEl = document.getElementById('box');
+if ( targetEl ) {
 
-	ReactDOM.render(<World/>, taregetEl);
+	ReactDOM.render(<StoryBox />, targetEl);
 
 }
-

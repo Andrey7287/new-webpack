@@ -1,6 +1,6 @@
 export default class {
 
-	constructor (menu = '.site-nav', burger = '.c-hamburger', duration = 1000) {
+	constructor (duration = 500, menu = '.site-nav', burger = '.c-hamburger') {
 
 		this.menu = menu;
 		this.item = `${menu}__item`;
@@ -51,7 +51,7 @@ export default class {
 
 			var $button = $(e.target).is(this.burger) ? $(e.target) : $(e.target).parent();
 
-			this.accordion( $(this.menu), 1000 );
+			this.accordion( $(this.menu), this.duration );
 			$button.toggleClass('is-active');
 
 		});
@@ -89,7 +89,7 @@ export default class {
 			this.toggleActiveItem($otherItems, $targetItem);
 
 			this.closeOpened($otherOpened);
-			this.accordion($innerMenu, 1000);
+			this.accordion($innerMenu, this.duration);
 
 		});
 
