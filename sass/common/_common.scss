@@ -103,11 +103,6 @@ h3, .h3 {
 	margin: 10px 0;
 }
 
-.sub-title {
-	@include font(22,22, 700);
-	color: $grey;
-}
-
 $btn-bkg: #01a3d4;
 .btn {
 	width: 100%;
@@ -146,10 +141,6 @@ $btn-bkg: #01a3d4;
 	margin-bottom: 20px;
 }
 
-.bordered {
-	border-bottom: 1px solid #dadada;
-	padding-bottom: 24px;
-}
 .inner ul {
 	margin: 7px 0;
 	padding: 0;
