@@ -71,17 +71,14 @@ a {
 // Images
 
 img {
+	display: block;
 	max-width: 100%;
 }
 
 //Buttons
 
 button {
-	border: 0;
-	padding: 0;
-	background-color: transparent;
-	text-indent: -9999px;
-	outline: none;
+
 }
 
 // Headers

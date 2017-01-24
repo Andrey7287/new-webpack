@@ -1,51 +1,50 @@
 'use strict';
 
+/* Make jQuery available in global */
 console.log(`jQuery ${$.fn.jquery} is loaded`);
 window.$ = $;
 window.jQuery = $;
 
+/* Import project styles and components */
 import '../sass/css.scss';
 import Menu from './modules/menu';
+import Footer from './modules/footer';
+import OnResize from './modules/resize';
+import scrollup from './modules/scrollup';
+import 'script!picturefill/dist/picturefill.min';
 
+/* Define project components and variables */
 var menu = new Menu(),
+		footer = new Footer(),
+		resizeAdaptiveMenu = new OnResize(),
+		resizeAlignGreed = new OnResize(true),
 		isMap = $('#map').is('#map'),
 		isSlider = $('.slider').is('.slider'),
+		mobileView = window.matchMedia("(max-width: 992px)").matches,
 		scrollTiming = 0;
 
 /***********************
 ********* MENU *********
 ************************/
 
-
-(function adaptiveMenu () {
-
-	var mobileView = window.matchMedia("(max-width: 768px)").matches,
-			timing = 0;
-
+function adaptiveMenu(){
 	if ( mobileView ) {
 		menu.initBurger();
 		menu.initMobile();
 	} else {
 		menu.destructMobile();
 	}
+}
 
-	$(window).resize(()=>{
-
-		if ( !timing ) {
-			timing = setTimeout(adaptiveMenu, 200);
-		}
-
-	});
-
-})();
+resizeAdaptiveMenu.bind(adaptiveMenu);
 
 /***********************
 ******** FOOTER ********
 ************************/
 
-import Footer from './modules/footer';
-var footer = new Footer();
-footer.fixFooter();
+$(window).on('load', function(){
+	footer.fixFooter();
+});
 
 
 /**********************
@@ -68,7 +67,7 @@ if ( isMap ) {
 if ( isSlider ) {
 
 	require.ensure([], (require) => {
-		require('script!../node_modules/slick-carousel/slick/slick.js');
+		require('script!slick-carousel/slick/slick.js');
 		$('.slider').slick({
 			prevArrow: $('.left'),
 			nextArrow: $('.right'),
@@ -99,5 +98,21 @@ $(document).scroll(function(){
 
 });
 
-import scrollup from './modules/scrollup';
 $('.scrollup').scrollUp();
+
+/*******************************
+***** Align blocks on main *****
+********************************/
+
+function alignMainGreed(){
+
+	var baseHeight = $('.general').outerHeight(true),
+			feedLinkHeight = $('.news-feed__link').outerHeight(true),
+			feedItemHeight = ( baseHeight - feedLinkHeight - 45 ) / 3;
+
+	$('.news-feed__item').height(feedItemHeight);
+
+}
+
+resizeAlignGreed.bind(alignMainGreed);
+
