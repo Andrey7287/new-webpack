@@ -77,8 +77,20 @@ img {
 
 //Buttons
 
-button {
-
+body button:not(.scrollup):not(.slider-arrow) {
+	background: rgb(247,63,89);
+	background: linear-gradient(to bottom, rgba(247,63,89,1) 0%,rgba(222,55,78,1) 49%,rgba(218,54,77,1) 50%,rgba(200,48,69,1) 100%);
+	color: $white;
+	@include font(30,30, 700);
+	text-transform: uppercase;
+	padding: 20px 30px;
+	border-radius: 5px;
+	border: 0;
+	box-shadow: 0 1px 0 0 #ff4e67, 0 3px 0 0 #8e094b;
+	&:hover {
+		background: linear-gradient(to top, rgba(247,63,89,1) 0%,rgba(222,55,78,1) 49%,rgba(218,54,77,1) 50%,rgba(200,48,69,1) 100%);
+		box-shadow: 0 1px 0 0 #ff7689, 0 3px 0 0 rgba(247,63,89,1);
+	}
 }
 
 // Headers
