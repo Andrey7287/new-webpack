@@ -44,7 +44,7 @@ module.exports = {
 				css: path.resolve(__dirname, 'sass/tools/_sprite.scss')
 			},
 			apiOptions: {
-				cssImageRef: '/images//sprite.png'
+				cssImageRef: 'images/sprite.png'
 			}
 		}),
 		new ExtractTextPlugin("../[name].css", {
